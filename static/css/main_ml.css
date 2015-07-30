@@ -1,0 +1,263 @@
+body {
+	background-image: url('/static/img/bg.png');
+	margin: 0;
+	padding: 0;
+}
+
+.row {
+    width: 100%;
+    display: flex;flex-wrap;
+}
+
+.col-5 {
+    width: 40%;
+    /* border-radius: 3px; */
+    /* border: 1px solid #3399FF; */
+}
+
+.col-6 {
+    width: 60%;
+    /* border-radius: 3px; */
+    /* border: 1px solid #3399FF; */
+}
+
+/* HEADER */
+
+header {
+    background-color: #2B2B2B;
+    height: 35px;
+    width: 100%;
+    opacity: .9;
+    Margin-Bottom: 10px;
+}
+
+header h1.logo {
+    margin-top: 5px;
+    margin-left: 250px;
+    font-size: 1.2em;
+    color: #fff;
+    font-family: Ubuntu;
+    float: left;
+}
+
+/* MENU */
+
+.menu {
+    float: right;
+    margin-top: 4px;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size:90%;
+    font-family: Ubuntu;
+    margin-right: 50px;
+    
+}
+
+.col-4 p {
+    width: 90%;
+    margin-top: 8%;
+    margin-left: 3%;
+    text-align: center;
+    font-family: Ubuntu Mono;
+    font-size: 105%;
+    line-height: 1.2;
+}
+
+/* SKETCHER */
+
+#cd_sketcher {
+    margin-left: 10%;
+}   
+
+/* ML OPTIONS */
+
+#options{
+    height: 25px;
+    margin-left: 12%;
+    border: 1px solid #3399FF;
+    background-color: #fff;
+    font-family: Ubuntu Mono;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    /* font-size: 85%; */
+}
+
+/* TEXTFIELD */
+
+#smiles {    
+    height:25px;
+    width:55%;
+    border: 1px solid #3399FF;
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: Ubuntu Mono;
+    font-size: 100%;
+    padding: 0px 5px;
+}
+
+/* INSTRUCTIONS */
+
+#instruction_1 {
+    margin-left: 12%;
+}
+
+#instruction_2 {
+    margin-left: 10%;
+    margin-bottom: 30px;
+}
+
+/* IMAGE */
+
+#image {
+    margin-top: 25px;
+    margin-left: 17%;
+}
+
+#outcome {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #3399FF;
+}
+
+/* BUTTONS */
+
+#run, #get_smiles {
+	
+    height:28px;
+    /* font-weight:bold; */
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 2px solid  #3399FF;
+    text-align: center;
+    color: #000000;
+    background-color: white;
+    font-family: Ubuntu;
+    /* font-weight: bold; */  
+}
+
+#get_smiles{
+    margin-top: 5px;
+    margin-left: 38%;
+}
+
+#run{ 
+    border: 2px solid #CC3300; 
+ } 
+
+/* INSTRUCTIONS */
+
+.instructions, #units, #warning {
+    font-family: Ubuntu Mono;
+    font-size: 90%;
+}
+
+
+#units {
+    margin-left: 3%;
+}
+
+/* LINKS PAGE */
+
+#links_page {
+    width: 70% ;
+    /* background-color:yellow; */
+    margin: 3% auto;
+}
+
+ul
+{
+list-style-type: none;
+line-height: 1.7;
+padding: 0;
+}
+
+ul li {
+    margin-left:0px;
+}
+
+
+.links li a{
+    color: blue;
+    text-decoration: none;
+    font-size:100%;
+    font-family: Ubuntu;
+}
+
+.description {
+    margin-left: 10px;
+    font-family: Ubuntu Mono;
+    font-size: 100%;
+}
+
+h3 {
+    text-align: center;
+    font-family: Ubuntu;
+}
+
+.db_links {
+    font-family: Ubuntu Mono;
+    line-height: 1.7;
+    
+}
+
+.db_links a {
+    color: blue;
+    text-decoration: none;
+    font-size:100%;
+    font-family: Ubuntu Mono;
+}
+
+/* ABOUT PAGE */
+
+#text_about{
+    width: 75% ;
+    /* background-color:yellow; */
+    margin: 3% auto;
+}
+
+#text_about p{
+    text-align: justify;
+    font-family: Ubuntu Mono;
+    line-height: 1.5;
+}
+
+#text_about a{
+    text-decoration:none;
+}
+
+ul ol li {
+    font-family: Ubuntu Mono;
+    color: green;
+}
+
+.features_description {
+    font-family: Ubuntu Mono;
+}
+
+.features {
+    font-family: Ubuntu;
+    font-size: 95;
+    color: green;
+}
+
+#f_note {
+    float: right;
+    margin-right: 7%;
+    font-family: Ubuntu;
+    font-size: 70%;
+    position:absolute;
+    bottom: 2%;
+    left: 75%;
+}

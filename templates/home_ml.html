@@ -1,0 +1,53 @@
+{% extends 'layout_ml.html' %}
+
+{% block content %}
+
+<div class="grid">
+  <div class="row">
+    <div class="col-5">
+      <div id="instruction_2">
+        <p class="instructions">2. Draw the molecule in the sketcher and press "Get SMILES".</p>
+      </div>
+      <div id="cd_sketcher">
+	<script>
+	  var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 400, 300, {useServices:true});
+	  function myFunc($data){
+	  document.getElementById('txt_area').value = $data;
+	  };
+	</script>
+      </div> <!-- end sketcher -->
+      <button type="submit" id="get_smiles" onclick="myFunc(ChemDoodle.writeMOL(sketcher.getMolecule()));">Get SMILES</button>
+      <textarea id="txt_area" name="smiles_mol"></textarea>
+      </div> <!-- end col-6 -->
+
+    <div class="col-6">
+      <div id="instruction_1">
+        <p class="instructions">1. Choose a predictive model from the list.</p>
+      </div>
+      <form onsubmit="return false;" autocomplete="off">
+	{{ form.ml_options(id='options') }}
+	<div id="instruction_3">
+          <p class="instructions">3. Press "Run".</p>
+	</div>
+	{{ form.smiles(id="smiles", placeholder="Enter SMILES here") }}
+	{{ form.run }}	
+      </form>
+
+      <div>
+	<p id="warning"></p>
+      </div>
+      
+      <div id="image">
+	<img id="outcome" src="{{image}}"/>
+	<p id="units">{{units}}</p>
+      </div>
+      
+    </div> <!-- end col-6 -->    
+  </div> <!-- end row -->
+</div> <!-- end grid -->
+
+{% endblock %}
+
+{% block scripts %}
+   {{ super() }}
+{% endblock %}

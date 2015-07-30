@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="grid">
+  <div class="row">
+    <div class="col-4">
+      <p>Feel free to  use the sketcher if a database search does't meet your needs.
+	Draw the structure and click "Get Mol" to generate mol format.</p>
+      <div id="cd_sketcher">
+	<script>
+	  var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 400, 300, {useServices:true});
+	  function myFunc($data){
+	  document.getElementById('txt_area').value = $data;
+	  };
+	</script>
+      </div> <!-- end sketcher -->
+      <button type="submit" id="get_mol" onclick="myFunc(ChemDoodle.writeMOL(sketcher.getMolecule()));">Get Mol</button>
+      </div> <!-- end col-4 -->
+
+   
+    <div class="col-5">
+      <form onsubmit="return false;" autocomplete="off">
+	{{form.db_search(id="chemical", placeholder="Find a compound by name (e.g. aspirin)")}}
+	{{form.submit(id="search")}}
+	    
+	{{form.smiles_mol(id="txt_area")}}
+	{{form.action(id="convert", value="convert")}} 	
+    </div>  <!-- end col-5 -->  
+
+      <div class="col-3">
+	<iframe id="pdf" src ="{{ pdflink }}" allowfullscreen></iframe>
+	<div class="chb">
+	  <div id="1_col">
+	    {% for checkbox in checkboxes[:5] %}
+	    <label class="{{label_class}}" title="{{checkbox[0]}}">
+	      {% if checkbox[2] == 'chemfig'  %}
+	      <!-- {{ form.check(class= "{{ chkbx_class }}", value="{{ checkbox[1] }}", checked="checked") }}{{checkbox[2]}} -->
+	      <input type="checkbox" class="{{ chkbx_class }}" name="check" value="{{ checkbox[1] }}" checked="checked">{{checkbox[2]}}
+	      {% else  %}
+	      <input type="checkbox" class="{{ chkbx_class }}" name="check" value="{{ checkbox[1] }}">{{checkbox[2]}}
+	      {% endif %}
+	    </label><br>
+	    {% endfor  %}
+	    
+          </div> <!--end 1_col -->
+        
+          <div id="2_col" style="margin-left:5%;">
+	    {% for checkbox in checkboxes[5:] %}
+	    <label class="{{ label_class }}" title="{{ checkbox[0] }}">
+	      <input type="checkbox" class="{{ chkbx_class }}" name="check" value="{{ checkbox[1] }}">{{checkbox[2]}}
+	    </label><br>
+	    {% endfor  %}      
+
+	    <input class="checkboxtext" id="angle2" type="text" name="angle" size="2" value="0.0" title="Rotate molecule counterclockwise by this angle.">
+	    <span id="angle_txt">angle</span><br>
+	    {{ form.hydrogens(id="H2", title="Provide options how to display hydrogen atoms") }}<span id="text_hydrogens">{{ form.hydrogens.label }}</span><br>
+	  </div> <!-- end 2_col -->  
+	
+	</div> <!-- end chb -->
+	  <a id="more_options" href="http://chimpsky.uwaterloo.ca/mol2chemfig/webiface" target="_blank">Need more options?</a>
+	
+	  <div id="update_reset">
+	    {{ form.update(id="check_update") }}
+	    {{ form.reset(id="check_reset")  }}
+	  </div> <!-- end update_reset -->
+      </div> <!-- end col-3 -->
+    </form> <!-- end form -->
+  </div> <!-- end row -->
+</div> <!-- end grid -->
+
+{% endblock %}
+
+{% block scripts %}
+   {{ super() }}
+{% endblock %}
