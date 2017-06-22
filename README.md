@@ -1,4 +1,6 @@
-# web_apps
+# web_apps (depricated)
+
+Updated version can be found [here](https://github.com/py-chemist/webapps)
 
 Contains web interfaces for 2 projects:
 
